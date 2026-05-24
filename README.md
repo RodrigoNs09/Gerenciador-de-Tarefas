@@ -31,31 +31,6 @@ Sistema web de gerenciamento de tarefas com autenticação, categorias e filtros
 - MySQL 8.0+
 - XAMPP, WAMP ou servidor equivalente
 
-### Passo a passo
-
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/seu-usuario/gerenciador-tarefas.git
-   cd gerenciador-tarefas
-   ```
-
-2. Importe o banco de dados:
-   ```bash
-   mysql -u root -p < config/schema.sql
-   ```
-   Ou abra o arquivo `config/schema.sql` no phpMyAdmin e execute.
-
-3. Configure a conexão em `config/database.php`:
-   ```php
-   define('DB_HOST', 'localhost');
-   define('DB_USER', 'root');
-   define('DB_PASS', 'sua_senha');
-   define('DB_NAME', 'gerenciador_tarefas');
-   ```
-
-4. Coloque o projeto na pasta `htdocs` (XAMPP) ou `www` (WAMP).
-
-5. Acesse `http://localhost/gerenciador-tarefas`
 
 ### Usuário de teste
 
@@ -86,7 +61,6 @@ gerenciador-tarefas/
 
 ## Capturas de tela
 
-> *(Adicione prints aqui após rodar o projeto localmente)*
 
 ## Próximas melhorias
 
@@ -98,5 +72,5 @@ gerenciador-tarefas/
 ## Autor
 
 **Rodrigo Nascimento da Silva**
-- GitHub: [@seu-usuario](https://github.com/seu-usuario)
-- LinkedIn: [seu-linkedin](https://linkedin.com/in/seu-linkedin)
+- GitHub: https://github.com/RodrigoNs09/
+- LinkedIn:https://linkedin.com/in/rodrigo-nascimento-da-silva
