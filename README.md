@@ -61,6 +61,10 @@ gerenciador-tarefas/
 
 ## Capturas de tela
 
+![Login](screenshots/tela%20login.png)
+![Dashboard](screenshots/dashboard.png)
+![Novo Usuário](screenshots/novo%20usuario.png)
+![Adicionar Tarefas](screenshots/adicionar%20tarefas.png)
 
 ## Próximas melhorias
 
