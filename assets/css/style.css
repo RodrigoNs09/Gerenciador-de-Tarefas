@@ -105,3 +105,59 @@ h2 { font-size: 20px; font-weight: 600; margin-bottom: 1rem; }
     .task-card { flex-direction: column; }
     .toolbar { flex-direction: column; align-items: stretch; }
 }
+
+/* --- Modo Escuro --- */
+body.dark {
+    --bg: #0f172a;
+    --surface: #1e293b;
+    --border: #334155;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    background: #0f172a;
+    color: #f1f5f9;
+}
+
+body.dark .navbar {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+body.dark .task-card {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+body.dark .stat-card {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+body.dark .filters select {
+    background: #1e293b;
+    color: #f1f5f9;
+    border-color: #334155;
+}
+
+body.dark .form-card {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+body.dark .form-group input,
+body.dark .form-group select,
+body.dark .form-group textarea {
+    background: #0f172a;
+    color: #f1f5f9;
+    border-color: #334155;
+}
+
+.btn-dark-toggle {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+    cursor: pointer;
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+}

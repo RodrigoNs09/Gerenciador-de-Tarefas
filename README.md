@@ -31,14 +31,6 @@ Sistema web de gerenciamento de tarefas com autenticação, categorias e filtros
 - MySQL 8.0+
 - XAMPP, WAMP ou servidor equivalente
 
-
-### Usuário de teste
-
-| Campo | Valor          |
-|-------|----------------|
-| Email | dev@teste.com  |
-| Senha | 123456         |
-
 ## Estrutura do projeto
 
 ```
@@ -68,6 +60,7 @@ gerenciador-tarefas/
 
 ## Próximas melhorias
 
+- [✅]Modo escuro / claro com persistência
 - [ ] Drag-and-drop estilo Kanban
 - [ ] Notificações de prazo
 - [ ] Exportar tarefas em PDF

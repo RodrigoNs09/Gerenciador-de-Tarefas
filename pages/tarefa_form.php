@@ -72,7 +72,8 @@ $isEdicao = (bool) $tarefa;
 <body>
     <nav class="navbar">
         <div class="nav-brand"><span class="logo-icon">✓</span> TarefasFlow</div>
-        <a href="/gerenciador-tarefas/index.php" class="btn btn-outline btn-sm">← Voltar</a>
+       <button class="btn-dark-toggle" id="toggleDark" onclick="alternarTema()">Escuro</button>
+<a href="/gerenciador-tarefas/index.php" class="btn btn-outline btn-sm">← Voltar</a>
     </nav>
 
     <main class="container container-sm">
@@ -147,5 +148,6 @@ $isEdicao = (bool) $tarefa;
             </div>
         </form>
     </main>
+    <script src="/gerenciador-tarefas/assets/js/main.js"></script>
 </body>
 </html>

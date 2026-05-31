@@ -76,12 +76,12 @@ $conn->close();
         </div>
         <div class="nav-user">
             <span>Olá, <?= htmlspecialchars($usuario['nome']) ?></span>
-            <a href="/gerenciador-tarefas/logout.php" class="btn btn-outline btn-sm">Sair</a>
+            <button class="btn-dark-toggle" id="toggleDark" onclick="alternarTema()">☾</button>
+<a href="/gerenciador-tarefas/logout.php" class="btn btn-outline btn-sm">Sair</a>
         </div>
     </nav>
 
     <main class="container">
-        <!-- Cards de estatística -->
         <div class="stats-grid">
             <div class="stat-card">
                 <span class="stat-number"><?= $totais['total'] ?></span>
