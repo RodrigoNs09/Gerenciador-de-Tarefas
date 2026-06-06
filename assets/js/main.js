@@ -30,3 +30,42 @@ if (temaSalvo === 'dark') {
     const btn = document.getElementById('toggleDark');
     if (btn) btn.textContent = 'Claro';
 }
+
+// --- Kanban ---
+let dragId = null;
+
+function drag(event, id) {
+    dragId = id;
+}
+
+function drop(event, novoStatus) {
+    if (!dragId) return;
+
+    fetch('/gerenciador-tarefas/pages/atualizar_status.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: dragId, status: novoStatus })
+    })
+    .then(r => r.json())
+    .then(data => {
+        if (data.sucesso) location.reload();
+    });
+}
+
+function alternarVisao(visao) {
+    const lista = document.querySelector('.task-list') || document.querySelector('.empty-state');
+    const kanban = document.getElementById('kanban-view');
+    const btnLista = document.getElementById('btnLista');
+    const btnKanban = document.getElementById('btnKanban');
+
+    if (visao === 'kanban') {
+        if (lista) lista.style.display = 'none';
+        kanban.style.display = 'block';
+        btnKanban.classList.add('active');
+        btnLista.classList.remove('active');
+        localStorage.setItem('visao', 'kanban');
+    } else {
+        if (lista) lista.style.display = 'flex';
+        kanban.style.display = 'none';
+    }
+}

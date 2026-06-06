@@ -128,7 +128,11 @@ $conn->close();
                     <a href="/gerenciador-tarefas/index.php" class="btn btn-outline btn-sm">Limpar</a>
                 <?php endif; ?>
             </form>
-            <a href="/gerenciador-tarefas/pages/tarefa_form.php" class="btn btn-primary">+ Nova tarefa</a>
+            <div style="display:flex;gap:8px;">
+    <button class="btn btn-outline" id="btnLista" onclick="alternarVisao('lista')">☰ Lista</button>
+    <button class="btn btn-outline" id="btnKanban" onclick="alternarVisao('kanban')">⊞ Kanban</button>
+    <a href="/gerenciador-tarefas/pages/tarefa_form.php" class="btn btn-primary">+ Nova tarefa</a>
+    </div>
         </div>
 
         <!-- Lista de tarefas -->
@@ -138,6 +142,48 @@ $conn->close();
                 <a href="/gerenciador-tarefas/pages/tarefa_form.php" class="btn btn-primary">Criar primeira tarefa</a>
             </div>
         <?php else: ?>
+            <!-- Kanban -->
+<div id="kanban-view" style="display:none;">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;">
+        
+        <div class="kanban-col">
+            <div class="kanban-col-header">📋 Pendente</div>
+            <div class="kanban-drop" id="col-pendente" ondragover="event.preventDefault()" ondrop="drop(event,'pendente')">
+                <?php foreach ($tarefas as $t): if ($t['status'] !== 'pendente') continue; ?>
+                    <div class="kanban-card" draggable="true" ondragstart="drag(event,<?= $t['id'] ?>)">
+                        <span class="badge badge-<?= $t['prioridade'] ?>"><?= ucfirst($t['prioridade']) ?></span>
+                        <p><?= htmlspecialchars($t['titulo']) ?></p>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+
+        <div class="kanban-col">
+            <div class="kanban-col-header">⚡ Em andamento</div>
+            <div class="kanban-drop" id="col-em_andamento" ondragover="event.preventDefault()" ondrop="drop(event,'em_andamento')">
+                <?php foreach ($tarefas as $t): if ($t['status'] !== 'em_andamento') continue; ?>
+                    <div class="kanban-card" draggable="true" ondragstart="drag(event,<?= $t['id'] ?>)">
+                        <span class="badge badge-<?= $t['prioridade'] ?>"><?= ucfirst($t['prioridade']) ?></span>
+                        <p><?= htmlspecialchars($t['titulo']) ?></p>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+
+        <div class="kanban-col">
+            <div class="kanban-col-header">✅ Concluída</div>
+            <div class="kanban-drop" id="col-concluida" ondragover="event.preventDefault()" ondrop="drop(event,'concluida')">
+                <?php foreach ($tarefas as $t): if ($t['status'] !== 'concluida') continue; ?>
+                    <div class="kanban-card" draggable="true" ondragstart="drag(event,<?= $t['id'] ?>)">
+                        <span class="badge badge-<?= $t['prioridade'] ?>"><?= ucfirst($t['prioridade']) ?></span>
+                        <p><?= htmlspecialchars($t['titulo']) ?></p>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+
+    </div>
+</div>
             <div class="task-list">
                 <?php foreach ($tarefas as $tarefa): ?>
                     <div class="task-card priority-<?= $tarefa['prioridade'] ?> <?= $tarefa['status'] === 'concluida' ? 'task-done' : '' ?>">

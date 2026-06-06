@@ -161,3 +161,58 @@ body.dark .form-group textarea {
     font-size: 14px;
     font-weight: 500;
 }
+/* --- Kanban --- */
+.kanban-col {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px;
+    min-height: 400px;
+}
+
+.kanban-col-header {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text);
+    padding: 8px 4px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+}
+
+.kanban-drop {
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.kanban-drop.drag-over {
+    background: var(--bg);
+    border-radius: var(--radius);
+    border: 2px dashed var(--primary);
+}
+
+.kanban-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px 12px;
+    cursor: grab;
+    transition: box-shadow .15s;
+}
+
+.kanban-card:hover {
+    box-shadow: var(--shadow);
+}
+
+.kanban-card p {
+    margin: 6px 0 0;
+    font-size: 13px;
+    color: var(--text);
+}
+
+.btn-outline.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}

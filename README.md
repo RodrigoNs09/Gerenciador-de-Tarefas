@@ -61,7 +61,7 @@ gerenciador-tarefas/
 ## Próximas melhorias
 
 - [✅]Modo escuro / claro com persistência
-- [ ] Drag-and-drop estilo Kanban
+- [✅] Drag-and-drop estilo Kanban
 - [ ] Notificações de prazo
 - [ ] Exportar tarefas em PDF
 - [ ] API REST para consumo mobile
