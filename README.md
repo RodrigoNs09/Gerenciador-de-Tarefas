@@ -63,8 +63,7 @@ gerenciador-tarefas/
 - [✅]Modo escuro / claro com persistência
 - [✅] Drag-and-drop estilo Kanban
 - [✅] Notificações de prazo
-- [ ] Exportar tarefas em PDF
-- [ ] API REST para consumo mobile
+- [✅] API REST para consumo mobile
 
 ## Autor
 
