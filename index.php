@@ -82,6 +82,44 @@ $conn->close();
     </nav>
 
     <main class="container">
+        <?php
+// Verifica tarefas vencidas ou vencendo hoje
+$hoje = date('Y-m-d');
+$conn2 = conectar();
+$alertas = $conn2->prepare('SELECT titulo, prazo FROM tarefas WHERE usuario_id = ? AND status != "concluida" AND prazo <= ? AND prazo IS NOT NULL ORDER BY prazo ASC');
+$cinco_dias = date('Y-m-d', strtotime('+7 days'));
+$alertas->bind_param('is', $usuario['id'], $cinco_dias);
+$alertas->execute();
+$tarefas_prazo = $alertas->get_result()->fetch_all(MYSQLI_ASSOC);
+$conn2->close();
+?>
+
+<?php if (!empty($tarefas_prazo)): ?>
+<div class="prazo-banner" id="prazoBanner">
+    <div class="prazo-banner-header">
+        <span>⚠️ <?= count($tarefas_prazo) ?> tarefa(s) com prazo vencido ou vencendo em breve</span>
+        <button onclick="document.getElementById('prazoBanner').style.display='none'" class="prazo-close">✕</button>
+    </div>
+    <ul class="prazo-lista">
+        <?php foreach ($tarefas_prazo as $t): ?>
+            <li>
+                <strong><?= htmlspecialchars($t['titulo']) ?></strong>
+                — <?= date('d/m/Y', strtotime($t['prazo'])) ?>
+                <?php
+    if ($t['prazo'] < $hoje) {
+        echo '<span class="badge-vencida">Vencida</span>';
+    } elseif ($t['prazo'] === $hoje) {
+        echo '<span class="badge-hoje">Vencendo hoje</span>';
+    } else {
+        $dias = (strtotime($t['prazo']) - strtotime($hoje)) / 86400;
+        echo '<span class="badge-hoje">Vence em ' . (int)$dias . ' dia(s)</span>';
+    }
+?>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</div>
+<?php endif; ?>
         <div class="stats-grid">
             <div class="stat-card">
                 <span class="stat-number"><?= $totais['total'] ?></span>

@@ -69,3 +69,12 @@ function alternarVisao(visao) {
         kanban.style.display = 'none';
     }
 }
+
+// --- Badge no título da aba ---
+const prazoBanner = document.getElementById('prazoBanner');
+if (prazoBanner) {
+    const qtd = document.querySelectorAll('.prazo-lista li').length;
+    if (qtd > 0) {
+        document.title = '(' + qtd + ') ' + document.title;
+    }
+}
