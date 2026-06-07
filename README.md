@@ -33,22 +33,29 @@ Sistema web de gerenciamento de tarefas com autenticação, categorias e filtros
 
 ## Estrutura do projeto
 
+## Estrutura do projeto
+
 ```
 gerenciador-tarefas/
+├── api/
+│   ├── index.php           # Endpoints REST (GET, POST, PUT, DELETE)
+│   └── login.php           # Autenticação e geração de token
 ├── config/
-│   ├── database.php      # Conexão com banco
-│   ├── auth.php          # Funções de sessão e autenticação
-│   └── schema.sql        # Estrutura do banco
+│   ├── database.php        # Conexão com banco
+│   ├── auth.php            # Funções de sessão e autenticação
+│   └── schema.sql          # Estrutura do banco
 ├── pages/
-│   ├── tarefa_form.php   # Criar e editar tarefas
-│   └── tarefa_delete.php # Excluir tarefa
+│   ├── tarefa_form.php     # Criar e editar tarefas
+│   ├── tarefa_delete.php   # Excluir tarefa
+│   └── atualizar_status.php # Atualiza status via Kanban
 ├── assets/
-│   ├── css/style.css     # Estilos
-│   └── js/main.js        # JavaScript
-├── index.php             # Dashboard principal
-├── login.php             # Tela de login
-├── register.php          # Cadastro de usuário
-└── logout.php            # Encerrar sessão
+│   ├── css/style.css       # Estilos + modo escuro
+│   └── js/main.js          # JavaScript + Kanban + tema
+├── screenshots/            # Capturas de tela
+├── index.php               # Dashboard principal
+├── login.php               # Tela de login
+├── register.php            # Cadastro de usuário
+└── logout.php              # Encerrar sessão
 ```
 
 ## Capturas de tela
